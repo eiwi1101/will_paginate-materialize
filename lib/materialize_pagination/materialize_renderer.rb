@@ -13,8 +13,8 @@ module MaterializePagination
     def page_number(page)
       classes = ['waves-effect', ('active' if page == current_page)].join(' ')
 
-      list_item = tag :li, page, :class => classes
-      link(list_item, page, :rel => rel_value(page))
+      href = link page, page, :rel => rel_value(page)
+      tag :li, href, :class => classes
     end
 
     # @return [String] rendered gap between pagination links
